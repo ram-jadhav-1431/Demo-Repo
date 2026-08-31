@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rama - Premium crafted products for modern living.">
+  <title>Rama | Premium Collections</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --muted: #666;
+      --line: #e0e0e0;
+      --paper: #f9f7f2;
+      --cream: #ede8e0;
+      --white: #ffffff;
+      --accent: #d4513f;
+      --accent-dark: #a83a2c;
+      --sage: #8b9d8f;
+      --mono: "DM Mono", monospace;
+      --sans: "Manrope", sans-serif;
+    }
+    
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.6; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    
+    .site-header { background: var(--paper); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+    .nav { max-width: 1280px; margin: auto; min-height: 70px; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .wordmark { color: var(--ink); text-decoration: none; font-size: 20px; font-weight: 800; letter-spacing: -.06em; }
+    .wordmark span { color: var(--accent); }
+    
+    .nav-links { display: flex; gap: 30px; align-items: center; font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: .08em; }
+    .nav-links a { color: var(--ink); text-decoration: none; transition: color .3s ease; }
+    .nav-links a:hover { color: var(--accent); }
+    
+    .nav-actions { display: flex; align-items: center; gap: 11px; }
+    .icon-button { width: 40px; height: 40px; display: grid; place-items: center; background: transparent; color: var(--ink); border: 1px solid transparent; transition: all .3s ease; }
+    .icon-button:hover { border-color: var(--line); background: var(--white); }
+    
+    .hero { max-width: 1280px; margin: auto; padding: 50px 32px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center; }
+    .hero-copy { display: flex; flex-direction: column; justify-content: center; }
+    
+    h1 { max-width: 500px; margin: 20px 0 20px; font-size: 52px; line-height: 1.1; letter-spacing: -.05em; font-weight: 700; }
+    .hero-copy p { max-width: 400px; margin: 0 0 30px; color: var(--muted); font-size: 16px; line-height: 1.8; }
+    
+    .primary-button { border: 0; background: var(--ink); color: var(--white); padding: 14px 28px; font: 500 11px var(--mono); letter-spacing: .08em; text-transform: uppercase; display: inline-flex; gap: 12px; align-items: center; transition: background .3s ease; }
+    .primary-button:hover { background: var(--accent); }
+    
+    .hero-image { width: 100%; aspect-ratio: 1 / 1; background: linear-gradient(135deg, #d4a574 0%, #8b7355 100%); display: grid; place-items: center; color: var(--white); font-size: 14px; }
+    
+    .section { max-width: 1280px; margin: auto; padding: 60px 32px; }
+    .section-head { border-top: 2px solid var(--ink); padding: 18px 0 30px; display: flex; justify-content: space-between; align-items: center; }
+    .section-head h2 { margin: 0; font-size: 28px; letter-spacing: -.05em; }
+    
+    .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .product-card { cursor: pointer; transition: transform .3s ease; }
+    .product-card:hover { transform: translateY(-8px); }
+    
+    .product-image { aspect-ratio: 1 / 1.2; background: var(--cream); position: relative; overflow: hidden; }
+    .product-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    
+    .product-info { padding: 15px 0; }
+    .product-name { margin: 0; font-size: 14px; font-weight: 600; }
+    .product-price { margin: 8px 0 0; font-family: var(--mono); font-size: 13px; color: var(--accent); font-weight: 600; }
+    .product-detail { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
+    
+    .footer { background: var(--ink); color: var(--paper); padding: 50px 32px 30px; margin-top: 80px; }
+    .footer-inner { max-width: 1280px; margin: auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+    .footer-column h3 { margin: 0 0 18px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+    .footer-column a, .footer-column p { color: #b0b0b0; text-decoration: none; font-size: 13px; line-height: 1.8; }
+    .footer-column a:hover { color: var(--accent); }
+    
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+      .hero { grid-template-columns: 1fr; padding: 30px 20px; }
+      .h1 { font-size: 36px; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .section { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="#" class="wordmark">Ra<span>ma</span></a>
+      <div class="nav-links">
+        <a href="#shop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#journal">Journal</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="icon-button">🔍</button>
+        <button class="icon-button">👤</button>
+        <button class="icon-button">🛒</button>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <p style="font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);">Discover Quality</p>
+      <h1>Thoughtfully Designed for Your Lifestyle</h1>
+      <p>Explore our curated collection of premium products crafted with attention to detail and quality materials.</p>
+      <button class="primary-button">Shop Now →</button>
+    </div>
+    <div class="hero-image">
+      [Featured Image]
+    </div>
+  </section>
+
+  <section class="section" id="shop">
+    <div class="section-head">
+      <h2>Featured Products</h2>
+      <span style="font-size: 12px; color: var(--muted); letter-spacing: .08em;">View All →</span>
+    </div>
+    
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-image"></div>
+        <div class="product-info">
+          <div class="product-name">Premium Ceramic Bowl</div>
+          <div class="product-price">$48.00</div>
+          <div class="product-detail">Handcrafted</div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-image"></div>
+        <div class="product-info">
+          <div class="product-name">Linen Throw Pillow</div>
+          <div class="product-price">$56.00</div>
+          <div class="product-detail">Natural Fiber</div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-image"></div>
+        <div class="product-info">
+          <div class="product-name">Wooden Serving Board</div>
+          <div class="product-price">$72.00</div>
+          <div class="product-detail">Oak Wood</div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-image"></div>
+        <div class="product-info">
+          <div class="product-name">Artisan Coffee Set</div>
+          <div class="product-price">$84.00</div>
+          <div class="product-detail">Ceramic</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-column">
+        <h3>Shop</h3>
+        <a href="#">New Arrivals</a><br>
+        <a href="#">Best Sellers</a><br>
+        <a href="#">Collections</a>
+      </div>
+      <div class="footer-column">
+        <h3>About</h3>
+        <a href="#">Our Story</a><br>
+        <a href="#">Sustainability</a><br>
+        <a href="#">Craftsmanship</a>
+      </div>
+      <div class="footer-column">
+        <h3>Support</h3>
+        <a href="#">Contact Us</a><br>
+        <a href="#">Shipping Info</a><br>
+        <a href="#">Returns</a>
+      </div>
+      <div class="footer-column">
+        <h3>Follow</h3>
+        <a href="#">Instagram</a><br>
+        <a href="#">Twitter</a><br>
+        <a href="#">Newsletter</a>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; font-size: 12px; color: #666;">
+      © 2026 Rama. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Simple smooth scroll for links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
